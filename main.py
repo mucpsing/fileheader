@@ -148,7 +148,7 @@ class CpsAddFileHeaderCommand(sublime_plugin.TextCommand):
         template = SETTINGS.get("template", {})
 
         # 检查当前后缀名是否存在对应的 tmpl 模板文件
-        _, ext = os.path.basename(filename).split(".")
+        _, ext = os.path.splitext(filename)
         res = {}
         if ext.lower() in template.keys():
             if isinstance(template[ext], list):
