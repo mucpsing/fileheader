@@ -1,0 +1,12 @@
+[
+  {
+    "id": "cps-plugins",
+    "caption": "CPS-Plugins",
+    "children": [
+      {
+        "caption": "Add Fileheader",
+        "command": "cps_add_file_header"
+      }
+    ]
+  }
+]

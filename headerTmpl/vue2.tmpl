@@ -1,0 +1,47 @@
+<!--
+ * @Author: CPS
+ * @email: 373704015@qq.com
+ * @Date: {{create_time}}
+ * @Last Modified by: {{last_modified_by}}
+ * @Last Modified time: {{last_modified_time}}
+ * @Filename {{file_name}}
+ * @Description: 功能描述
+-->
+
+<template lang="pug"></template>
+
+<script>
+export default {
+  components: {},
+  computed:{},
+  created() {},
+  mounted() {},
+
+  props: {
+    template: {
+      type: String,
+      required: false,
+      default:()=>{
+        return ""
+      },
+      validator: function(value) {
+        return [
+          'syncing',
+          'synced',
+          'version-conflict',
+          'error'
+        ].indexOf(value) !== -1
+      }
+    }
+  },
+
+  data() {
+    return {}
+  },
+
+  methods: {},
+}
+
+</script>
+
+<style lang="stylus" scoped></style>

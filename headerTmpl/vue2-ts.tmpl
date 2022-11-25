@@ -1,0 +1,46 @@
+<!--
+ * @Author: CPS
+ * @email: 373704015@qq.com
+ * @Date: {{create_time}}
+ * @Last Modified by: {{last_modified_by}}
+ * @Last Modified time: {{last_modified_time}}
+ * @Filename {{file_name}}
+ * @Description: 功能描述
+-->
+
+<template lang="pug">
+div {{name}}
+</template>
+
+<script lang="ts">
+import {Vue, Component} from 'vue-property-decorator';
+
+@Component
+export default class "组件名" extends Vue{
+
+  // Hooks...
+  created() {
+    console.log("created()");
+  }
+  mounted() {
+    console.log("mounted()");
+  }
+
+  // Computed...
+  get newName(){
+    return 'new ' + this.name
+  }
+
+  // Data...
+  private name:string = "组件名"
+
+  // Methods
+  public test():void{
+    this.name = ""
+    console.log('test()')
+  }
+}
+
+</script>
+
+<style lang="stylus"></style>

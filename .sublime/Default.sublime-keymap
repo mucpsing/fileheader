@@ -1,0 +1,6 @@
+[
+  {
+    "keys": ["alt+f"],
+    "command": "cps_add_file_header"
+  },
+]
