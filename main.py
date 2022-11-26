@@ -112,7 +112,7 @@ class CpsAddFileHeaderCommand(sublime_plugin.TextCommand):
                 self.insert_info(edit, header_info)
 
         except Exception as e:
-            print("TesttAddFileHeaderCommand，发生错误: ", e)
+            print("cps AddFileHeaderCommand，发生错误: ", e)
 
     # 用户选择后的回调，将用户所选择的语法传给函数
     def get_user_select_syntax(self, index: int) -> None:
