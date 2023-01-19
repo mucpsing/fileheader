@@ -88,6 +88,9 @@ class SettingManager:
 class CpsAddFileHeaderCommand(sublime_plugin.TextCommand):
     def run(self, edit, user_select_index: int = -1):
         file_name = self.view.file_name()
+        print("file_name: ", file_name)
+        dir_path = os.path.dirname(file_name)
+        print("dir_path: ", dir_path)
         try:
             tmp_file = self.get_tmpl_file(file_name)
             if len(tmp_file) > 1:
@@ -106,7 +109,9 @@ class CpsAddFileHeaderCommand(sublime_plugin.TextCommand):
                 tmp_file = tmp_file[list(tmp_file.keys())[0]]
 
             tmpl_info = self.get_header_info(file_name)
+            print("tmpl_info: ", tmpl_info)
             header_info = self.render_header_info_by_tmpl(tmp_file, tmpl_info)
+            print("header_info: ", header_info)
 
             if header_info:
                 self.insert_info(edit, header_info)
@@ -140,7 +145,8 @@ class CpsAddFileHeaderCommand(sublime_plugin.TextCommand):
         # 文件字符串少于2的话,当作是一个新文件,添加创建时间
         if self.view.sel()[0].end() <= 1:
             info = self.on_add_file(info)
-        info = self.on_modi_file(info)
+        info = self.add_file_base_info(info)
+
         return info
 
     def get_tmpl_file(self, filename: str) -> dict:
@@ -175,10 +181,18 @@ class CpsAddFileHeaderCommand(sublime_plugin.TextCommand):
         info["create_time"] = self.get_now(info["create_time"])
         return info
 
-    def on_modi_file(self, info):
+    def add_file_base_info(self, info):
+        """
+        @Description {description}
+
+        - param info :{param} {description}
+
+        @returns `{}` {description}
+
+        """
         info["last_modified_time"] = self.get_now(info["last_modified_time"])
-        info["file_path"] = os.path.dirname(__file__)
-        basename = os.path.basename(__file__)
+        info["file_path"] = os.path.dirname(self.view.file_name())
+        basename = os.path.basename(self.view.file_name())
 
         if basename.startswith("index"):
             # 如果文件是 index.xxxx, 就把文件夹名作为文件名
