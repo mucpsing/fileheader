@@ -167,6 +167,14 @@ class CpsAddFileHeaderCommand(sublime_plugin.TextCommand):
         return res
 
     def render_header_info_by_tmpl(self, tmpl_file, info):
+        global DEFAULT_TMPL_FLODER
+        print("tmpl_file: ", tmpl_file)
+
+        # 如果文件不存在，尝试从插件本地目录查找
+        if not os.path.exists(tmpl_file):
+            basename = os.path.basename(tmpl_file)
+            tmpl_file = os.path.join(DEFAULT_TMPL_FLODER, basename)
+
         if os.path.exists(tmpl_file):
             # 读取tmpl文件
             res = ""
@@ -176,6 +184,8 @@ class CpsAddFileHeaderCommand(sublime_plugin.TextCommand):
                         each = each.replace("{{" + key + "}}", val)
                     res += each
             return res
+
+        print(f"fileheader: 文件不存在: {tmpl_file}")
 
     def on_add_file(self, info):
         info["create_time"] = self.get_now(info["create_time"])
