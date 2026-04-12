@@ -1,0 +1,26 @@
+DIR:cps-fileheader                # 
+   |-- .sublime/                  # 
+   |   |-- Default.sublime-keymap # 
+   |   `-- Context.sublime-menu   # 
+   |-- core/                      # 「core」
+   |   `-- utils.py               # 
+   |-- headerTmpl/                # 「headerTmpl」
+   |   |-- vue3.tmpl              # 
+   |   |-- vue3-setup.tmpl        # 
+   |   |-- vue2.tmpl              # 
+   |   |-- vue2-ts.tmpl           # 
+   |   |-- vue.tmpl               # 
+   |   |-- styl.tmpl              # 
+   |   |-- SCSS.tmpl              # 
+   |   |-- Python.tmpl            # 
+   |   |-- pug.tmpl               # 
+   |   |-- less.tmpl              # 
+   |   |-- JavaScript.tmpl        # 
+   |   |-- HTML.tmpl              # 
+   |   |-- CSS.tmpl               # 
+   |   `-- Batch File.tmpl        # 
+   |-- screenshot/                # 「screenshot」
+   |   `-- fileheader1.gif        # 
+   |-- README.md                  # 
+   |-- main.py                    # 
+   `-- .python-version            # 

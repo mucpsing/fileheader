@@ -1,0 +1,8 @@
+if ( __name__ == "__main__"):
+    import sys
+    from pathlib import Path
+    # 动态将项目根（包含 src 的父目录）加入 sys.path
+    for p in Path(__file__).resolve().parents:
+        if (p / "src").is_dir():
+            sys.path.insert(0, str(p))
+            break
